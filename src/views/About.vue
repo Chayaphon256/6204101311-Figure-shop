@@ -5,20 +5,29 @@
     </div>
     <div class="row">
       <product
-        v-for="(item, index) in Menuitem"
+        v-for="(item, index) in SearchMenu"
         :key="index"
         :NameProduct="item.NameProduct"
         :img="item.img"
         :Price="item.Price"
-        @Order="menuorder"
+        :id="index"
+        
       />
     </div>
   </div>
 </template>
 <script>
 import Product from "../components/Product.vue";
+import {mapGetters} from "vuex";
 export default {
-  components: { Product },
+  name: "Home",
+  components: {
+    Product,
+  },
+  computed: {
+    ...mapGetters(["SearchMenu"]),
+  
+ /* components: { Product },
   props: {
     Menuitem: Array
   },
@@ -31,8 +40,7 @@ export default {
     menuorder(value) {
       this.select.push(value);
       this.$emit("Order", this.select);
-    }
+    }*/
   }
 };
 </script>
-<style></style>

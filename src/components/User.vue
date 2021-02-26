@@ -44,10 +44,11 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
 export default {
-  props: {
-    Total: Number,
-    Data: Array
+  computed: { 
+    ...mapState(["Total"]),
+ 
   },
   data() {
     return {
@@ -60,7 +61,11 @@ export default {
     //ออกบิล
     sum() {
       alert(
-        `Name : ${this.Name} Tel : ${this.Tel}Address : ${this.Address} Total : ${this.Total} ฿`
+        "Name : "+this.Name+
+        "Tel : "+this.Tel+
+        "Address : "+ this.Address+
+        "Total : "+this.Total +
+        "฿"
       );
     }
   }
