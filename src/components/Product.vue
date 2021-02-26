@@ -18,31 +18,25 @@
         v-model="Amount"
         class="mb-2"
       ></b-form-spinbutton>
-      <button type="button" class="btn btn-outline-info" @click="Order(Amount,id)">
+      <button type="button" class="btn btn-outline-info" @click="Order()">
         <b-icon icon="basket"></b-icon> หยิบใส่
       </button>
     </b-card>
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex';
 export default {
   props: {
     NameProduct: String,
     img: String,
-    Price: Number,
-    id: Number
+    Price: Number
   },
   data() {
     return {
-      Amount: 1,
+      Amount: 1
     }
   },
-
-  computed: {
-    ...mapGetters(["Order"]),
-  },
- /* methods: {
+  methods: {
     Order() {
       alert("หยิบสินค้าเรียบร้อย");
       this.$emit("Order", {
@@ -52,7 +46,7 @@ export default {
         Total: this.Price * this.Amount
       });
     }
-  },*/
+  }
 };
 </script>
-
+<style></style>

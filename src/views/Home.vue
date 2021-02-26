@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <user/>
+    <user :Total="Total" :Data="Data" />
     <table class="table">
       <thead class="thead-dark">
         <tr>
@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(mi, index) in ShowMenuSelect" :key="index">
+        <tr v-for="(mi, index) in Data" :key="index">
           <td>{{ mi.NameProduct }}</td>
           <td>{{ mi.Price }}</td>
           <td>{{ mi.Amount }}</td>
@@ -23,17 +23,19 @@
 </template>
 
 <script>
-import user from "../components/User.vue";
-import {mapGetters} from "vuex";
+import User from "../components/User.vue";
 
 export default {
   name: "Home",
   components: {
-    user
+    User
   },
-    computed: {
-      ...mapGetters(["ShowMenuSelect"]),
-
+  props: {
+    Total: Number,
+    Data: Array
   },
+  data() {
+    return {};
+  }
 };
 </script>
